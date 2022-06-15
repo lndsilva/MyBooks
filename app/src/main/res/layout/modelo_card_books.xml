@@ -15,17 +15,22 @@
         android:orientation="vertical">
 
         <ImageView
-            android:scaleType="centerCrop"
-            android:layout_marginTop="5dp"
-            android:id="@+id/imgLivro"
+            android:id="@+id/imgModeloLivro"
             android:layout_width="match_parent"
             android:layout_height="160dp"
+            android:layout_marginTop="5dp"
+            android:scaleType="centerCrop"
             android:src="@drawable/iracema" />
 
         <TextView
+            android:id="@+id/txtModeloLivro"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Iracema" />
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="2sp"
+            android:text="Iracema"
+            android:textColor="#000"
+            android:textStyle="bold" />
     </LinearLayout>
 
 </androidx.cardview.widget.CardView>
