@@ -1,6 +1,7 @@
 package br.com.etecia.mybooks;
 
 import android.content.Context;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -26,17 +27,26 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
     @NonNull
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return null;
+        //Carregando o modelo de layout
+        View view;
+
+        LayoutInflater inflater = LayoutInflater.from(context);
+        view = inflater.inflate(R.layout.modelo_card_books,parent,false);
+
+        return new MyViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
 
+        holder.txtModeloLivros.setText(books.get(position).getTitulo());
+        holder.imgModeloLivros.setImageResource(books.get(position).getMiniatura());
+
     }
 
     @Override
     public int getItemCount() {
-        return 0;
+        return books.size();
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
