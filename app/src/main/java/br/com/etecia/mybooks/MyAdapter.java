@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
@@ -19,6 +20,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
     private List<Books> books;
 
 
+    //Construtor do adaptador
     public MyAdapter(Context context, List<Books> books) {
         this.context = context;
         this.books = books;
@@ -31,7 +33,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
         View view;
 
         LayoutInflater inflater = LayoutInflater.from(context);
-        view = inflater.inflate(R.layout.modelo_card_books,parent,false);
+        view = inflater.inflate(R.layout.modelo_card_books, parent, false);
 
         return new MyViewHolder(view);
     }
@@ -41,6 +43,15 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
 
         holder.txtModeloLivros.setText(books.get(position).getTitulo());
         holder.imgModeloLivros.setImageResource(books.get(position).getMiniatura());
+
+        //criar o evento de click nos cards
+        holder.idModeloCardLivros.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(context, "Cliquei no card",
+                        Toast.LENGTH_SHORT).show();
+            }
+        });
 
     }
 
